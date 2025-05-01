@@ -193,6 +193,11 @@ static void restart_burst(struct sched_entity *se) {
 }
 #endif // CONFIG_SCHED_BORE
 
+/*
+ * check pinned tasks before balance
+ */
+static DEFINE_PER_CPU(unsigned int, nr_pinned_tasks);
+
 #ifdef CONFIG_SMP
 /*
  * For asym packing, by default the lower numbered CPU has higher priority.
